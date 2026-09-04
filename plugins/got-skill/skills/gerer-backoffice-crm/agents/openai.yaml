@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gérer le back-office CRM"
+  short_description: "Vérifier et synchroniser les données société"
+  default_prompt: "Utilise $gerer-backoffice-crm pour vérifier cette entreprise et préparer sa mise à jour CRM."

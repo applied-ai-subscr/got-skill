@@ -1,0 +1,13 @@
+.DS_Store
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+dist/
+eval-workspace/
+
+# Sources privées : jamais publiées.
+/*.xml
+/talent-alchimie/
+/sequence-prospection-magic/

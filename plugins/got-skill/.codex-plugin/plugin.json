@@ -1,0 +1,25 @@
+{
+  "name": "got-skill",
+  "version": "0.1.0",
+  "description": "Collection de skills métier francophones pour le recrutement, la prospection et les opérations.",
+  "author": {"name": "Applied AI Subscribers"},
+  "repository": "https://github.com/applied-ai-subscr/got-skill",
+  "license": "Apache-2.0",
+  "keywords": ["skills", "francais", "recrutement", "prospection", "crm"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Got Skill",
+    "shortDescription": "Skills métier francophones prêts à l'emploi",
+    "longDescription": "Une collection de skills portables pour rédiger des annonces, évaluer des candidats, créer des séquences de prospection, gérer des données CRM et concevoir des agents IA.",
+    "developerName": "Applied AI Subscribers",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://github.com/applied-ai-subscr/got-skill",
+    "defaultPrompt": [
+      "Rédige une annonce à partir de cette fiche de poste.",
+      "Compare ce CV au besoin client.",
+      "Crée une séquence de prospection pour cette cible."
+    ],
+    "brandColor": "#F97316"
+  }
+}

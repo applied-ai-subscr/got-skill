@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rédiger une annonce d'emploi"
+  short_description: "Créer une annonce fidèle et attractive"
+  default_prompt: "Utilise $rediger-annonce-emploi pour rédiger cette annonce à partir de mes documents."

@@ -1,0 +1,17 @@
+{
+  "name": "got-skill-marketplace",
+  "owner": {"name": "Applied AI Subscribers"},
+  "description": "Marketplace communautaire de skills francophones pour les usages métier de l'IA.",
+  "plugins": [
+    {
+      "name": "got-skill",
+      "displayName": "Got Skill",
+      "source": "./plugins/got-skill",
+      "description": "Skills métier francophones pour le recrutement, la prospection, le back-office et la conception d'agents IA.",
+      "author": {"name": "Applied AI Subscribers"},
+      "repository": "https://github.com/applied-ai-subscr/got-skill",
+      "category": "business-productivity",
+      "tags": ["skills", "francais", "recrutement", "prospection", "operations"]
+    }
+  ]
+}

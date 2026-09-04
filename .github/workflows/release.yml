@@ -1,0 +1,31 @@
+name: Release skills
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/validate_marketplace.py
+      - name: Build packages
+        run: |
+          mkdir -p /tmp/release-assets
+          cd plugins/got-skill
+          zip -r /tmp/release-assets/got-skill.plugin . -x '*.DS_Store' -x '*/evals/*'
+          cd skills
+          for skill_dir in */; do
+            skill_name="${skill_dir%/}"
+            zip -r "/tmp/release-assets/${skill_name}.skill" "${skill_name}" -x '*.DS_Store' -x '*/evals/*'
+          done
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: /tmp/release-assets/*
+          fail_on_unmatched_files: true

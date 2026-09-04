@@ -1,0 +1,4 @@
+interface:
+  display_name: "Évaluer un candidat"
+  short_description: "Comparer un profil à un besoin client"
+  default_prompt: "Utilise $evaluer-candidat pour analyser ce CV face à cette fiche de poste."

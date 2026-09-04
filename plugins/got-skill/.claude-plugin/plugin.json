@@ -1,0 +1,8 @@
+{
+  "name": "got-skill",
+  "displayName": "Got Skill",
+  "version": "0.1.0",
+  "description": "Collection de skills métier francophones, portables et sans dépendance propriétaire.",
+  "author": {"name": "Applied AI Subscribers"},
+  "keywords": ["skills", "francais", "recrutement", "prospection", "crm", "agents"]
+}
