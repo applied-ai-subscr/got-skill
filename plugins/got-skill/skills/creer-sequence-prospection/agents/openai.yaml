@@ -1,4 +1,4 @@
 interface:
-  display_name: "Créer une séquence de prospection"
-  short_description: "Écrire une campagne ciblée et crédible"
-  default_prompt: "Utilise $creer-sequence-prospection pour construire une séquence adaptée à cette cible."
+  display_name: "Sequence Prospection Magic"
+  short_description: "Créer une séquence de cold emails qui répond"
+  default_prompt: "Utilise $creer-sequence-prospection : aide-moi à créer une séquence de prospection."

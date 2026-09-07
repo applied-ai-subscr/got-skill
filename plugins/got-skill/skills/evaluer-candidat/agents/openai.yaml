@@ -1,4 +1,4 @@
 interface:
-  display_name: "Évaluer un candidat"
-  short_description: "Comparer un profil à un besoin client"
-  default_prompt: "Utilise $evaluer-candidat pour analyser ce CV face à cette fiche de poste."
+  display_name: "Talent Alchimie"
+  short_description: "Analyser un candidat face à un appel d'offres"
+  default_prompt: "Utilise $evaluer-candidat : voici le CV et le besoin client, quels sont les atouts et faiblesses de ce candidat ?"

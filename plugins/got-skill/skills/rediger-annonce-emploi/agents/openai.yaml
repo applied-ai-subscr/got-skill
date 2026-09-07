@@ -1,4 +1,4 @@
 interface:
-  display_name: "Rédiger une annonce d'emploi"
-  short_description: "Créer une annonce fidèle et attractive"
-  default_prompt: "Utilise $rediger-annonce-emploi pour rédiger cette annonce à partir de mes documents."
+  display_name: "L'Annonce Magique"
+  short_description: "Une annonce standardisée depuis une fiche de poste"
+  default_prompt: "Utilise $rediger-annonce-emploi : génère-moi une annonce pour cette fiche de poste et cette annonce modèle."

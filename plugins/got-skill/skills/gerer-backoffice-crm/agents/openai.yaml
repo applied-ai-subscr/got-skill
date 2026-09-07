@@ -1,4 +1,4 @@
 interface:
-  display_name: "Gérer le back-office CRM"
-  short_description: "Vérifier et synchroniser les données société"
-  default_prompt: "Utilise $gerer-backoffice-crm pour vérifier cette entreprise et préparer sa mise à jour CRM."
+  display_name: "Assistant Back-Office CRM"
+  short_description: "Créer, vérifier et contractualiser une entreprise"
+  default_prompt: "Utilise $gerer-backoffice-crm : je veux créer une entreprise dans mon CRM."

@@ -2,21 +2,24 @@
 
 ## Périmètre
 
-Ce dépôt distribue des skills métier. Garder les instructions concises, portables et indépendantes d'un fournisseur de modèle.
+Ce dépôt distribue des skills métier issus d'anciens GPTs personnalisés. La priorité est la fidélité à la logique d'origine de chaque GPT : parcours, portes d'entrée, gabarits, ton, exemples. La concision vient ensuite : les gabarits et exemples vont dans `references/`, le corps du `SKILL.md` garde le parcours complet.
+
+## Modernisation autorisée
+
+- Remplacer les actions Zapier par des outils MCP décrits par capacité, avec repli sans connecteur.
+- Retirer le boilerplate « Chain of Thought / ReAct » sans retirer les étapes métier.
+- Ne pas redemander une information déjà fournie ; garder l'ordre des étapes.
 
 ## Confidentialité
 
-- Ne jamais versionner les exports XML, PDF ou DOCX sources.
-- Ne jamais ajouter de référence à Finaxys, ni de logo, donnée, exemple ou modèle issu de cette entreprise.
-- Les références distribuées doivent être en Markdown et réécrites de manière générique.
-- Les jeux de test éventuels doivent être entièrement synthétiques.
+- Ne jamais versionner les exports XML, PDF ou DOCX sources (`/*.xml`, `/talent-alchimie/`, `/sequence-prospection-magic/`, `/eval-workspace/`).
+- Ne jamais ajouter de référence à l'ancien employeur, ni de logo, donnée, exemple ou modèle issu de cette entreprise.
+- Les références distribuées sont en Markdown et réécrites de manière générique ; les exemples sont synthétiques.
 
 ## Structure
 
-- Chaque dossier sous `plugins/got-skill/skills/` contient un `SKILL.md`.
-- Les connaissances conditionnelles vont dans `references/*.md`.
-- Ne créer un dossier `assets/` que pour un véritable fichier de sortie réutilisable, jamais pour une base de connaissances.
-- Les intégrations externes sont optionnelles et passent par des outils MCP disponibles dans l'environnement.
+- Chaque dossier sous `plugins/got-skill/skills/` contient un `SKILL.md`, un `agents/openai.yaml` (Codex) et des `references/*.md`.
+- Les évals de fidélité vivent dans `eval-workspace/evals/<skill>.json` (local) ; les scénarios sont conversationnels (dossier utilisateur scripté).
 
 ## Livraison
 

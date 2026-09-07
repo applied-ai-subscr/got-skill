@@ -1,25 +1,22 @@
-# Grille de conception d'un agent
+# Grille d'audit d'instructions existantes
 
-## Cadrage
+## Points forts à conserver
+- Parcours et ordre des étapes, portes d'entrée (documents obligatoires, messages imposés).
+- Règles métier chiffrées : seuils, plafonds, délais, refus.
+- Ton, langue, formats de sortie et exemples.
 
-- Quel résultat observable produire, pour qui et dans quel contexte ?
-- Quelles entrées sont obligatoires, facultatives ou récupérables ?
-- Qu'est-ce qui est hors périmètre ?
+## Faiblesses fréquentes
+- Règles métier détachées du flux : préciser à quelle étape chaque règle s'applique.
+- Incohérence entre l'objectif d'une étape et l'action demandée.
+- Cas limites absents : entrée incomplète ou illisible, plusieurs documents d'un coup, fin de collecte, hors sujet.
+- Action externe sans récapitulatif ni validation globale.
+- Mécaniques propriétaires obsolètes (Zapier, `list_available_actions`, `run_action`) : remplacer par une description par capacité avec repli sans outil.
+- Injonctions génériques (« réfléchis étape par étape », majuscules impératives, `####`) : remplacer par des critères de réussite observables.
+- Aucun exemple de conversation.
 
-## Décisions et permissions
-
-- Quelles règles métier modifient le résultat ?
-- Quelles ambiguïtés exigent une question ?
-- Quels cas imposent un arrêt, un avertissement ou une validation humaine ?
-- Quel retour d'outil prouve la réussite et quel repli produire sans outil ?
-
-## Qualité
-
-- Faits, hypothèses et recommandations sont-ils distingués ?
-- Les contraintes sont-elles testables ?
-- Les répétitions et prescriptions sans justification ont-elles été retirées ?
+## Questions de cadrage
+- Quel résultat observable produire, pour qui, dans quel contexte ?
+- Quelles entrées sont obligatoires, facultatives ou récupérables par un outil ?
+- Quelles ambiguïtés exigent une question ? Quels cas imposent un arrêt ou une validation humaine ?
+- Quel retour d'outil prouve la réussite ?
 - Les exemples sont-ils synthétiques et non confidentiels ?
-
-## Moderniser un ancien prompt
-
-Retirer les injonctions « réfléchis étape par étape », répétitions en majuscules, validations à chaque micro-étape et formats rigides sans valeur métier. Les remplacer par des critères de réussite, seuils de décision, sorties structurées et confirmations liées au risque réel.

@@ -1,21 +1,18 @@
-# Grille d'entretien structurée
+# Format des questions d'entretien
 
-## Construction
+## Organisation
+1. **Catégorie 1 – Informations indispensables** : gaps identifiés et informations absentes du CV mais demandées par le client.
+2. **Catégorie 2 – Questions challengeantes** : attendus prioritaires du client ou du commercial, toujours avec les réponses attendues.
 
-1. Critère évalué et importance pour la mission.
-2. Contexte réaliste et non confidentiel.
-3. Question ouverte sur une expérience ou un problème.
-4. Une ou deux relances sur décisions, contraintes et résultats.
-5. Éléments attendus : raisonnement observable, actions, compromis, contrôles et résultat mesuré.
-6. Signaux d'alerte : réponse théorique, rôle personnel absent ou choix inexpliqués.
+## Chaque question
+- **Source dans l'appel d'offres** : l'exigence ou le point d'attention visé.
+- **Motivation** : ce que l'on cherche à évaluer.
+- **Contexte / scénario** : une situation réaliste liée à la mission (incident, projet, problématique métier ou technique).
+- **Question principale** : précise, centrée sur le problème à résoudre.
+- **Sous-questions** : une ou deux relances pour creuser (décisions, contraintes, résultats).
+- **Réponse attendue détaillée** : étapes, outils, bonnes pratiques, critères de validation, rédigés pour qu'un RH non expert puisse juger.
+- **Exemples de réponses de candidat** : une réponse forte et une réponse moyenne.
+- **Critères d'évaluation** : signaux positifs, signaux d'alerte, ce qui confirme un gap.
 
-Pour une information manquante, demander contexte, responsabilité personnelle, action, difficulté, résultat et apprentissage. Pour tester la profondeur, faire varier une contrainte : volume, panne, sécurité, délai ou dette legacy.
-
-## Évaluation
-
-- 0 : aucune preuve ou hors sujet ;
-- 1 : notions générales sans pratique démontrée ;
-- 2 : expérience pertinente avec explication partielle ;
-- 3 : maîtrise démontrée, compromis explicités et résultat vérifiable.
-
-Noter les preuves, pas une impression globale. Comparer tous les candidats sur les mêmes critères essentiels.
+## Après l'entretien
+L'utilisateur peut fournir le compte-rendu ou la transcription : les réponses servent alors à lever les écarts dans la synthèse.

@@ -1,4 +1,4 @@
 interface:
-  display_name: "Concevoir un agent IA"
-  short_description: "Transformer un processus en instructions fiables"
-  default_prompt: "Utilise $concevoir-instructions-agent pour moderniser ces anciennes instructions."
+  display_name: "Meta-prompt assistant IA"
+  short_description: "Créer ou optimiser les instructions d'un assistant"
+  default_prompt: "Utilise $concevoir-instructions-agent : j'ai un BusinessProcess (ou des ExistingInstructions) à transformer en instructions d'assistant."
