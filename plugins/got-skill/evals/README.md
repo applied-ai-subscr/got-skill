@@ -42,3 +42,14 @@ Itération 2 : 10 scénarios, 63 assertions, un run par configuration. Les éche
 Itération 3 (2026-09-07) : 11 scénarios après ajout d'un cas de réécriture d'email, 68 assertions, 68 passées.
 
 Un seul run par scénario : les résultats sont indicatifs, pas statistiques.
+
+## Runner (`scripts/run_evals.py`)
+
+Les évals sont pilotables par le runner `python3 scripts/run_evals.py` (stdlib uniquement) :
+
+- `validate` (défaut) : vérifie la structure de chaque `evals.json` (champs requis, `expectations` non vides, fichiers de `files/` présents). **Hors-ligne et déterministe** : c'est le gate structurel exécuté par la CI.
+- `list` : liste les scénarios par skill.
+- `replay [skill]` : rejoue le dialogue de fidélité (assistant appliquant le `SKILL.md` contre l'utilisateur scripté du `dossier_utilisateur`). Exige un endpoint OpenAI-compatible (`GOTSKILL_EVAL_API_BASE`, `GOTSKILL_EVAL_MODEL`, `GOTSKILL_EVAL_API_KEY`). Écrit sous `--out/<skill>/run-<horodatage>-eval<id>/` les `conversation.md`, livrables et `grading.json`. 12 tours utilisateur max.
+- `grade --out <dir>` : agrège tous les `grading.json` d'un dossier de runs, affiche le taux par skill et **sort en code non nul si une assertion échoue ou si un run est sans grading** (porte de verrouillage verte locale).
+
+Le rejeu (et donc le grading) fait appel à un LLM : la CI n'exécute que `validate` (structurel) ; le gate sur les *résultats* de fidélité reste à exécuter localement avec des identifiants ou en transcription manuelle des résultats dans le tableau ci-dessus.

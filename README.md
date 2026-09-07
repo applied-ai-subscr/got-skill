@@ -61,7 +61,13 @@ Les exports GPT et les documents sources restent locaux et ne sont pas distribu�
 ## Validation
 
 ```bash
-python3 scripts/validate_marketplace.py
+python3 scripts/validate_marketplace.py   # structure du marketplace (CI)
+python3 scripts/run_evals.py validate     # structure des évals, hors-ligne (CI)
+
+# Rejeu conversationnel de fidélité (nécessite un endpoint OpenAI-compatible) :
+#   GOTSKILL_EVAL_API_KEY=... python3 scripts/run_evals.py replay [skill]
+# Agrégation des résultats de runs en gate (code non nul si une assertion échoue) :
+python3 scripts/run_evals.py grade --out eval-workspace/runs
 ```
 
 ## Licence

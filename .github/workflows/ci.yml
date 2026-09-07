@@ -15,3 +15,5 @@ jobs:
         with:
           python-version: "3.12"
       - run: python3 scripts/validate_marketplace.py
+      - name: Validate evals structure
+        run: python3 scripts/run_evals.py validate
