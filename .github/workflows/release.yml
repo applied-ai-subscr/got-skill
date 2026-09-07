@@ -19,7 +19,7 @@ jobs:
         run: |
           mkdir -p /tmp/release-assets
           cd plugins/got-skill
-          zip -r /tmp/release-assets/got-skill.plugin . -x '*.DS_Store' -x '*/evals/*'
+          zip -r /tmp/release-assets/got-skill.plugin . -x '*.DS_Store' -x 'evals/*' -x '*/evals/*'
           cd skills
           for skill_dir in */; do
             skill_name="${skill_dir%/}"

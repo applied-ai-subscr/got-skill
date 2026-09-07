@@ -1,0 +1,42 @@
+{
+  "skill_name": "gerer-backoffice-crm",
+  "evals": [
+    {
+      "id": 2,
+      "prompt": "Je veux créer une entreprise dans mon CRM",
+      "dossier_utilisateur": "Utilisateur : Sophie, assistante back-office. Réponses disponibles : son entreprise est « Nordlys Conseil » (SIREN 812 456 789) ; la contrepartie est « Lumenor Technologies », de type client, elle n'a pas son SIREN sous la main ; quand on lui demande un document, elle transmet le KBIS evals/files/kbis_extrait.txt ; si on lui propose de vérifier sur Pappers, elle dit oui (aucun outil MCP n'est branché : l'assistant doit dire ce qu'il ferait) ; les informations extraites lui paraissent exactes ; son outil est HubSpot (import par fichier CSV) ; elle confirme l'action quand on la lui demande. Pour toute autre question : « je ne sais pas ».",
+      "expected_output": "import_hubspot.csv ou payload.json, plus verification.md",
+      "files": [
+        "kbis_extrait.txt"
+      ],
+      "expectations": [
+        "La première question de l'assistant porte sur le nom de l'entreprise de l'utilisatrice (pas sur la contrepartie), avec une explication brève de pourquoi c'est utile",
+        "L'assistant demande ensuite la contrepartie avec son type (client, prestataire, partenaire ou sous-traitant) et un identifiant éventuel, puis confirme les deux noms",
+        "L'assistant demande un KBIS ou un contrat, en extrait les informations, puis demande si elles sont exactes et propose une vérification sur Pappers avant d'avancer",
+        "L'assistant demande quel outil cible utiliser (CRM ou Workspace) et adapte le modèle de données à cet outil (colonnes HubSpot)",
+        "L'assistant demande une confirmation explicite avant de générer le fichier d'import, et n'affirme jamais que l'import a été fait",
+        "Les correspondances de listes de valeurs sont annoncées, et aucune catégorie n'est inventée en cas de doute (ex : type « client » laissé vide si absent de la liste standard)",
+        "Le ton est amical et encourageant, en langage naturel, sans mentionner les mots « étape » ou « mapping »",
+        "Le fichier d'import contient le nom, l'adresse 14 rue des Halles 44000 Nantes, le SIREN 851234567 et le SIRET 85123456700024 extraits du KBIS"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Je veux rédiger un nouveau contrat avec un client",
+      "dossier_utilisateur": "Utilisateur : Sophie, assistante back-office. Réponses disponibles : son entreprise est « Nordlys Conseil » ; le client est « Lumenor Technologies », SIREN 851 234 567 ; document : le KBIS evals/files/kbis_extrait.txt ; les informations sont exactes, pas besoin de Pappers ; outil : Google Docs avec le modèle « Contrat_prestation_conseil_Modele » ; les détails du contrat sont dans evals/files/details_contrat_lumenor.md (elle ne les donne que si l'assistant pose la question correspondante, un élément à la fois si l'assistant pose une question à la fois) ; elle confirme l'action quand on la lui demande. Aucun connecteur Google Docs n'est branché : l'assistant doit produire les variables de fusion.",
+      "expected_output": "variables_contrat.json et verification.md",
+      "files": [
+        "details_contrat_lumenor.md",
+        "kbis_extrait.txt"
+      ],
+      "expectations": [
+        "L'assistant commence par demander le nom de l'entreprise de l'utilisatrice, puis la contrepartie, puis un document, dans cet ordre",
+        "Pour le contrat, l'assistant demande le nom, prénom et fonction du mandataire signataire ainsi que le cadre et le domaine de la prestation",
+        "Les variables de fusion produites contiennent le mandataire Inès Kovac Présidente, le cadre « accompagnement au forfait » et le domaine « conseil en data et migration cloud »",
+        "Les informations de la contrepartie dans les variables (dénomination, SIREN, adresse, forme juridique) proviennent du KBIS",
+        "L'assistant demande une confirmation avant de lancer la création du document et, sans connecteur, produit les variables de fusion au lieu de simuler la création",
+        "Aucune mention de Zapier, list_available_actions ou run_action dans les messages à l'utilisateur (modernisation attendue ; l'original échoue)"
+      ]
+    }
+  ]
+}

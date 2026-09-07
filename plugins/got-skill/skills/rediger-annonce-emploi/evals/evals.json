@@ -1,0 +1,41 @@
+{
+  "skill_name": "rediger-annonce-emploi",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Génère moi une annonce pour cette fiche de poste. Je te joins la fiche de poste (evals/files/fiche_poste_data_engineer.md) et une annonce existante de chez nous (evals/files/annonce_modele.md).",
+      "dossier_utilisateur": "Utilisateur : Camille, chargée de recrutement chez Nordlys Conseil. Elle a fourni les deux documents dès le premier message. Si l'assistant demande une information manquante ou ambiguë, elle répond : date de début « dès que possible », manager « Léa Morvan, Head of Data », pas d'autre info. Elle valide tout ce qui est proposé.",
+      "expected_output": "annonce.md",
+      "files": [
+        "annonce_modele.md",
+        "fiche_poste_data_engineer.md"
+      ],
+      "expectations": [
+        "L'assistant vérifie explicitement la présence des deux entrées (fiche de poste ET annonce modèle) avant de rédiger",
+        "L'annonce suit le format standardisé : en-tête (titre, localisation, contrat, expérience, études), À propos, Pourquoi ce poste existe, Missions et responsabilités, Profil recherché (hard/soft), Ce que nous offrons, Processus de recrutement et candidature",
+        "Chaque résultat attendu de la fiche est converti en responsabilité concrète (format « Responsabilité → action et impact »), sans chiffre inventé",
+        "Les faits de l'entreprise (présentation, avantages, processus en 3 étapes, email de candidature) viennent uniquement de l'annonce modèle et sont repris fidèlement",
+        "L'assistant demande à l'utilisateur de vérifier ou compléter les informations manquantes ou ambiguës (ex : date de début) et intègre les réponses dans la version finale",
+        "La rémunération 48 000 à 55 000 € et la localisation Nantes avec 2 jours de télétravail sont conservées exactement"
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Rédige-moi une annonce pour ce poste : evals/files/fiche_poste_data_engineer.md",
+      "dossier_utilisateur": "Utilisateur : Camille, chargée de recrutement chez Nordlys Conseil. Elle n'a fourni que la fiche de poste. Si l'assistant réclame une annonce modèle ou existante, elle répond au tour suivant en fournissant evals/files/annonce_modele.md. Si l'assistant demande autre chose : date de début « dès que possible », sinon « je ne sais pas ». Elle valide tout ce qui est proposé.",
+      "expected_output": "annonce.md",
+      "files": [
+        "annonce_modele.md",
+        "fiche_poste_data_engineer.md"
+      ],
+      "expectations": [
+        "Au premier tour, l'assistant refuse de rédiger et réclame l'annonce modèle manquante, sans produire d'annonce partielle",
+        "Le message de refus indique clairement qu'il faut une fiche de poste ET une annonce modèle",
+        "Une fois l'annonce modèle reçue, l'assistant produit l'annonce complète au format standardisé sans redemander la fiche de poste",
+        "L'annonce finale reprend le processus de recrutement en 3 étapes et l'email de candidature de l'annonce modèle",
+        "Aucun avantage, valeur d'entreprise ou fait n'est inventé au-delà des deux sources",
+        "Si une rubrique du processus de recrutement manque dans l'annonce modèle, elle est signalée à compléter et aucune étape standard fictive n'est ajoutée"
+      ]
+    }
+  ]
+}

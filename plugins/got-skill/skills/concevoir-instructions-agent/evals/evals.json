@@ -1,0 +1,39 @@
+{
+  "skill_name": "concevoir-instructions-agent",
+  "evals": [
+    {
+      "id": 4,
+      "prompt": "J'ai un BusinessProcess. Le voici : evals/files/processus_metier_notes_frais.md. Crée les instructions de l'assistant.",
+      "dossier_utilisateur": "Utilisateur : Pierre, formateur IA. Il a tout fourni. Pour toute question : « fais au mieux, ton amical, en français, public : salariés non techniques ».",
+      "expected_output": "instructions.md",
+      "files": [
+        "processus_metier_notes_frais.md"
+      ],
+      "expectations": [
+        "Le résultat suit le gabarit : Description, Instructions d'interaction avec une section par étape contenant « Tâches de l'assistant » et « Entrées de l'utilisateur », Consignes de communication, Exemples de conversation, Notes spéciales (gestion des erreurs)",
+        "Les 4 étapes du processus métier sont reprises dans l'ordre avec leurs tâches et entrées utilisateur",
+        "Toutes les règles métier sont présentes : éligibilité (pas les prestataires), repas > 25 € avec motif, refus sans justificatif, refus au-delà de 60 jours, plafonds hébergement 130 € / 180 € Paris, délai de remboursement 30 jours",
+        "Les Communication Guidelines reflètent la demande : ton amical, français, public non technique",
+        "Au moins 2 exemples de dialogue utilisateur/assistant sont fournis",
+        "Le résultat ne contient pas d'injonctions Chain of Thought / ReAct dans les instructions produites (modernisation attendue ; l'original échoue)"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "J'ai un ExistingInstructions à optimiser : evals/files/ancien_prompt.md",
+      "dossier_utilisateur": "Utilisateur : Pierre, formateur IA. Il a tout fourni. Pour toute question : « garde les règles métier, améliore la clarté et la robustesse ».",
+      "expected_output": "instructions.md",
+      "files": [
+        "ancien_prompt.md"
+      ],
+      "expectations": [
+        "L'assistant analyse d'abord les instructions existantes (points forts, faiblesses, ambiguïtés) avant de proposer la version optimisée",
+        "La version optimisée suit le gabarit avec étapes (Assistant's Tasks / User Inputs), Communication Guidelines, Examples et Special Notes",
+        "Les 3 règles métier (repas > 25 €/personne avec motif, refus sans justificatif, refus au-delà de 60 jours) sont conservées",
+        "Le ton amical et l'interdiction de mentionner les étapes et les mappings sont conservés",
+        "Un récapitulatif global avec validation est ajouté avant l'envoi vers l'outil comptable",
+        "L'envoi vers l'outil comptable est décrit par capacité (connecteur MCP) et non via la mécanique Zapier list_available_actions / run_action (modernisation attendue ; l'original échoue)"
+      ]
+    }
+  ]
+}

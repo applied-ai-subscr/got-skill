@@ -54,7 +54,9 @@ Les skills fonctionnent sans intégration. Quand un connecteur MCP est disponibl
 
 ## Tests
 
-Chaque skill a été rejoué en dialogue simulé face aux instructions d'origine du GPT, sur des scénarios synthétiques, avec des critères de fidélité (ordre des étapes, messages imposés, gabarits). Les exports GPT, les documents sources et les jeux de test restent locaux et ne sont pas distribués.
+Chaque skill embarque ses scénarios de test dans `evals/` (`evals.json` et documents d'entrée synthétiques). Les scénarios ont été rejoués en dialogue simulé face aux instructions d'origine du GPT, puis face au skill, avec des critères de fidélité : ordre des étapes, messages imposés, gabarits. Méthode, protocole et résultats : [plugins/got-skill/evals/README.md](plugins/got-skill/evals/README.md).
+
+Les exports GPT et les documents sources restent locaux et ne sont pas distribués.
 
 ## Validation
 

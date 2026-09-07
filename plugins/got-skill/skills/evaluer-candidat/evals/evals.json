@@ -1,0 +1,45 @@
+{
+  "skill_name": "evaluer-candidat",
+  "evals": [
+    {
+      "id": 8,
+      "prompt": "Quels sont les atouts majeurs et les faiblesses de ce candidat pour cet appel d'offre ? CV : evals/files/cv_candidat.md, besoin client : evals/files/besoin_client.md",
+      "dossier_utilisateur": "Utilisateur : Nadia, Talent Acquisition. Elle a fourni les deux documents. Elle confirme l'analyse telle quelle. Quand on lui propose le choix, elle choisit [A] les questions d'entretien. Pour toute autre question : « je ne sais pas ».",
+      "expected_output": "analyse.md et questions.md",
+      "files": [
+        "besoin_client.md",
+        "cv_candidat.md"
+      ],
+      "expectations": [
+        "L'assistant vérifie explicitement la présence du CV et du besoin client avant toute analyse",
+        "L'analyse présente : pertinence globale, points forts, écarts (gaps) par rapport au besoin, informations manquantes ou à confirmer, puis demande confirmation à l'utilisatrice avant de continuer",
+        "Après confirmation, l'assistant propose le choix [A] questions d'entretien ou [B] synthèse",
+        "Les questions sont organisées en 2 catégories : informations indispensables (gaps et manques) et questions challengeantes liées aux attendus prioritaires",
+        "Chaque question indique la source dans le besoin client, la motivation, un scénario concret, 1 à 2 sous-questions, une réponse attendue détaillée lisible par un RH non technique, et des critères d'évaluation",
+        "Une question challengeante porte sur l'optimisation Spark concrète (point d'attention du client) avec les éléments techniques attendus (partitionnement, broadcast, cache ou équivalent)",
+        "L'âge et la situation familiale du CV ne sont ni repris ni utilisés",
+        "L'assistant propose de développer les questions ou réponses si nécessaire"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Créé une présentation candidat avec ce CV : evals/files/cv_candidat.md",
+      "dossier_utilisateur": "Utilisateur : Nadia, Talent Acquisition. Elle n'a d'abord donné que le CV. Si l'assistant réclame le besoin client, elle fournit evals/files/besoin_client.md au tour suivant. Elle confirme l'analyse. Elle choisit [B] la synthèse, et fournit le compte-rendu d'entretien evals/files/cr_entretien_benali.md si l'assistant demande s'il existe, sinon elle le mentionne spontanément juste avant la génération de la synthèse. Pour toute autre question : « je ne sais pas ».",
+      "expected_output": "synthese.md",
+      "files": [
+        "besoin_client.md",
+        "cr_entretien_benali.md",
+        "cv_candidat.md"
+      ],
+      "expectations": [
+        "Au premier tour, l'assistant refuse et réclame le besoin client sans produire d'analyse",
+        "Une fois le besoin reçu, l'assistant fait l'analyse d'adéquation et demande confirmation, puis propose le choix [A]/[B]",
+        "Avant de générer la synthèse [B], l'assistant vérifie si un compte-rendu d'entretien existe",
+        "La synthèse respecte le gabarit : « Présentation Client – Prénom Nom », « Poste visé », puis les chapitres Résumé du profil, Points forts, Disponibilités et Mobilité",
+        "Chaque chapitre contient au plus 4 puces, et la synthèse est concise et orientée vente (atouts différenciateurs en avant, mots-clés du besoin couverts)",
+        "Le compte-rendu d'entretien est exploité pour lever les écarts (Airflow, Azure, présentiel) et la disponibilité, mobilité et TJM sont reportés",
+        "L'âge et la situation familiale du CV n'apparaissent pas dans la synthèse"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "skill_name": "creer-sequence-prospection",
+  "evals": [
+    {
+      "id": 6,
+      "prompt": "Aide moi à créer une séquence de prospection ?",
+      "dossier_utilisateur": "Utilisateur : Julien Faure, Head of Sales chez Rapprocheo. Il répond aux questions une par une avec les infos du brief evals/files/brief_prospection.md (lis-le pour jouer Julien) : entreprise Rapprocheo, site rapprocheo.example, mission « rendre le rapprochement bancaire automatique pour les PME », campagne menée par Julien Faure, objectif : obtenir une démo de 20 min, lien RDV https://rdv.rapprocheo.example/julien ; B2B, secteurs distribution et services B2B ; exemple de prospect : Marie Dupont, DAF chez Fictiv Distribution SAS, 120 salariés, Lille ; outil Lemlist ; longueur moyenne ; ton professionnel ; contenu à valeur ajoutée : cas client Bretel Négoce (12 h/mois économisées, rapprochement de 5 jours à 1 jour) et le guide PDF « Clôturer en 3 jours ». Il confirme chaque récapitulatif, valide les 2 premiers emails sans modification et demande la suite. Pour toute autre question : « je ne sais pas ».",
+      "expected_output": "sequence.md",
+      "files": [
+        "brief_prospection.md"
+      ],
+      "expectations": [
+        "L'assistant mène la découverte dans l'ordre : informations de base (entreprise, site, mission, qui, objectif, lien RDV), puis persona (B2B/B2C, secteur, exemples), puis paramètres (outil, longueur, ton), puis contenus à valeur ajoutée",
+        "L'assistant confirme les informations collectées à la fin de chaque phase avant de passer à la suivante",
+        "Le persona est dérivé des exemples de prospects sans reprendre Marie Dupont ni Fictiv Distribution dans le persona ou les emails",
+        "L'assistant génère d'abord les 2 premiers emails et demande validation avant de générer le reste de la séquence",
+        "Le ton est expert, ludique et direct, en tutoiement, sans hésitation",
+        "Chaque email a un sujet court (environ 5 mots), un corps de 80 à 130 mots, un seul problème, et utilise des variables Lemlist (syntaxe {{ }} ou Liquid)",
+        "Les CTA s'appuient sur le cas client Bretel Négoce (5 jours → 1 jour, 12 h/mois) sans chiffre inventé, et la séquence indique délais entre envois et indicateur de réponse ou de suivi",
+        "La séquence finale est livrée avec 5 à 7 emails (longueur moyenne)"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Quelles sont les 6 questions que ton prospect doit pouvoir répondre ?",
+      "dossier_utilisateur": "Utilisateur : Julien Faure, Head of Sales. Il veut une réponse directe, pas une séquence. S'il est relancé, il dit « juste la réponse, merci ».",
+      "expected_output": "reponse.md",
+      "files": [],
+      "expectations": [
+        "L'assistant répond directement à la question par une liste de 6 questions que le prospect doit pouvoir se poser (qui, pourquoi moi, pourquoi maintenant, quel gain, quelle preuve, quelle action ou équivalents)",
+        "Le ton est celui d'un expert, ludique et direct, en tutoiement",
+        "L'assistant n'impose pas le parcours de création de séquence quand l'utilisateur dit vouloir juste la réponse"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Personnalise cet email pour des DAF de PME : « Bonjour, notre solution automatise le rapprochement bancaire. Avez-vous 20 minutes ? »",
+      "dossier_utilisateur": "Utilisateur : Julien Faure, Head of Sales. Il veut uniquement une réécriture. Offre : Rapprocheo automatise le rapprochement bancaire. Persona : DAF de PME. Preuve disponible : aucune. Pour toute question supplémentaire : « je ne sais pas ».",
+      "expected_output": "email.md",
+      "files": [],
+      "expectations": [
+        "L'assistant répond directement sur l'email fourni sans lancer le parcours complet de découverte",
+        "La réécriture cible explicitement le problème du rapprochement bancaire vécu par un DAF de PME",
+        "Aucun chiffre, témoignage, client ou résultat mesuré n'est inventé en l'absence de preuve fournie",
+        "L'assistant explique brièvement les changements puis livre un sujet et un corps d'email révisés"
+      ]
+    }
+  ]
+}
